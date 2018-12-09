@@ -1,0 +1,32 @@
+<h1>Books</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th></th>
+    <th>Author</th>
+    <th></th>
+    <th>Stock</th>
+    <th></th>
+    <th>Description</th>
+    <th></th>
+    <th>Buying Price</th>
+    <th></th>
+    <th>Selling Price</th>
+  </tr>
+  <% for book in @books %>
+  <tr>
+    <td><a href="/books/<%= book.id %>"><%= book.title %></a></td>
+    <td></td>
+    <td><%= book.author %></td>
+    <td></td>
+    <td><%= book.stock %></td>
+    <td></td>
+    <td><%= book.description %></td>
+    <td></td>
+    <td><%= book.buying_price %></td>
+    <td></td>
+    <td><%= book.selling_price %></td>
+  </tr>
+  <% end %>
+</table>
