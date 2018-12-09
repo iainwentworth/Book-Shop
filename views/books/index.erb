@@ -8,6 +8,8 @@
     <th></th>
     <th>Stock</th>
     <th></th>
+    <th>Stock Status</th>
+    <th></th>
     <th>Description</th>
     <th></th>
     <th>Buying Price</th>
@@ -21,6 +23,8 @@
     <td><%= book.author %></td>
     <td></td>
     <td><%= book.stock %></td>
+    <td></td>
+    <td><div class=stockout><%= book.stock_status_out %></ div><div class=stocklow><%= book.stock_status_low %></ div><div class=stockgood><%= book.stock_status_good %></ div></td>
     <td></td>
     <td><%= book.description %></td>
     <td></td>

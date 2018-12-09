@@ -8,7 +8,7 @@ class Book
     @id = details['id'].to_i if details['id']
     @title = details['title']
     @author = details['author']
-    @stock = details['stock']
+    @stock = details['stock'].to_i
     @description = details['description']
     @buying_price = details['buying_price'].to_i
     @selling_price = details['selling_price'].to_i
@@ -55,4 +55,22 @@ class Book
     SqlRunner.run(sql)
   end
 
-end
+  def stock_status_low
+    if @stock < 10 && @stock != 0
+      return "Low"
+    end
+  end
+
+  def stock_status_out
+    if @stock == 0
+      return "Out of stock"
+    end
+  end
+
+  def stock_status_good
+    if @stock >= 10
+      return "Good"
+    end
+  end
+
+  end

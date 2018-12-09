@@ -1,0 +1,26 @@
+.stockout {
+  background-color: red;
+}
+
+.stocklow {
+  background-color: orange;
+}
+
+.stockgood {
+  background-color: lightgreen;
+}
+
+h1 {
+  font-family: Arial;
+}
+
+
+
+td {
+  padding: 10px 20px 0px 0px;
+  /* border: 1px solid black; */
+}
+
+body {
+  font-family: Arial;
+}
