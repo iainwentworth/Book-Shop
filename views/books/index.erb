@@ -39,6 +39,10 @@
     <td><%= book.selling_price %></td>
     <td></td>
     <td><%= book.markup %></td>
+    <td><form action="/books/<%= book.id %>"
+      method="get">
+        <input type="submit" value="Show Details">
+      </form></td>
   </tr>
   <% end %>
 </table>

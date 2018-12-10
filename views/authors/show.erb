@@ -8,9 +8,15 @@
   <% end %>
 </ul>
 
+
+<form action="/authors/<%= @author.id %>/edit"
+  method="get">
+    <input type="submit" value="Edit Author">
+  </form>
+
+<br>
+
 <form action="/authors/<%= @author.id %>/delete"
   method="post">
     <input type="submit" value="Delete Author">
   </form>
-
-<p><a href="/authors/<%= @author.id %>/edit">Edit Author</a></p>
