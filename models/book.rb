@@ -64,7 +64,7 @@ class Book
         category
       ) =
       (
-        $1, $2, $3, $4, $5, $6, %7
+        $1, $2, $3, $4, $5, $6, $7
       )
       WHERE id = $8"
       values = [@title, @author_id, @stock, @description, @buying_price, @selling_price, @category, @id]
@@ -106,5 +106,9 @@ class Book
     result = SqlRunner.run(sql, values)[0]
     return Author.new(result)
   end
+
+def markup
+  return @selling_price - @buying_price
+end
 
   end

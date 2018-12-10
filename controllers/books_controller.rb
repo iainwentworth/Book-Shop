@@ -8,6 +8,18 @@ get '/books' do
   erb ( :"books/index" )
 end
 
+get '/books/new' do
+  @books = Book.all
+  @authors = Author.all
+  @categories = ["Science-fiction", "Fantasy"]
+  erb(:"books/new")
+end
+
+post '/books' do
+  Book.new(params).save
+  redirect to '/books'
+end
+
 get '/books/:id' do
   @book = Book.find(params['id'].to_i)
   erb( :"books/show" )
@@ -20,6 +32,14 @@ post '/books/:id/delete' do
 end
 
 get '/books/:id/edit' do
+  @authors = Author.all
   @book = Book.find(params[:id].to_i())
+  @categories = ["Science-fiction", "Fantasy"]
   erb(:"books/edit")
+end
+
+post '/books/:id' do
+  book = Book.new(params)
+  book.update
+  redirect to "/books/#{params['id']}"
 end

@@ -13,12 +13,22 @@
   <label for="stock">Stock:</label>
   <input type="number" name="stock" value="<%= @book.stock %>">
 
+  <label for="description">Description:</label>
+  <input type="text" name="description" value="<%= @book.description %>">
+
   <label for="buying_price">Buying Price:</label>
   <input type="number" name="buying_price" value="<%= @book.buying_price %>">
 
   <label for="selling_price">Selling Price:</label>
   <input type="number" name="selling_price" value="<%= @book.selling_price %>">
 
+  <label for="category">Category:</label>
+  <select name="category">
+      <% for category in @categories %>
+            <option <%= 'selected' if category == @book.category %> value="<%=category%>"><%=category%></option>
+      <%end %>
+    </select>
+
   <input type="submit" value="Edit Book">
-  
+
 </form>

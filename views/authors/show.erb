@@ -7,3 +7,10 @@
   <li><a href="/books/<%= book.id %>"><%= book.title %></a></li>
   <% end %>
 </ul>
+
+<form action="/authors/<%= @author.id %>/delete"
+  method="post">
+    <input type="submit" value="Delete Author">
+  </form>
+
+<p><a href="/authors/<%= @author.id %>/edit">Edit Author</a></p>

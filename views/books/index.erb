@@ -6,6 +6,8 @@
     <th></th>
     <th>Author</th>
     <th></th>
+    <th>Category</th>
+    <th></th>
     <th>Stock</th>
     <th></th>
     <th>Stock Status</th>
@@ -15,12 +17,16 @@
     <th>Buying Price</th>
     <th></th>
     <th>Selling Price</th>
+    <th></th>
+    <th>Markup</th>
   </tr>
   <% for book in @books %>
   <tr>
     <td><a href="/books/<%= book.id %>"><%= book.title %></a></td>
     <td></td>
     <td><a href="/authors/<%= book.author_id %>"><%= book.author.name %></a></td>
+    <td></td>
+    <td><%= book.category %></td>
     <td></td>
     <td><%= book.stock %></td>
     <td></td>
@@ -31,6 +37,8 @@
     <td><%= book.buying_price %></td>
     <td></td>
     <td><%= book.selling_price %></td>
+    <td></td>
+    <td><%= book.markup %></td>
   </tr>
   <% end %>
 </table>

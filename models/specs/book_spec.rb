@@ -6,7 +6,7 @@ class TestBook < MiniTest::Test
 
   def setup
     details = {"title" => "Title One", "author_id" => "1",
-      "stock" => 10, "description" => "Book One Description", "buying_price" => 5, "selling_price" => 10, "category" => "Book One Category"}
+      "stock" => 10, "description" => "Book One Description", "buying_price" => 7, "selling_price" => 10, "category" => "Book One Category"}
 
     @book = Book.new(details)
   end
@@ -28,7 +28,7 @@ class TestBook < MiniTest::Test
 
   def test_buying_price()
     result = @book.buying_price()
-    assert_equal(5, result)
+    assert_equal(7, result)
   end
 
   def test_selling_price()
@@ -40,5 +40,10 @@ class TestBook < MiniTest::Test
     result = @book.category()
     assert_equal("Book One Category", result)
   end
+
+def test_markup
+  result = @book.markup
+  assert_equal(3, result)
+end
 
 end
