@@ -1,13 +1,15 @@
 require_relative( '../db/sql_runner' )
+require_relative('./author.rb')
 
 class Book
 
-  attr_reader(:id, :title, :author, :stock, :description, :buying_price, :selling_price, :category)
+  attr_reader(:id)
+  attr_accessor(:title, :author_id, :stock, :description, :buying_price, :selling_price, :category)
 
   def initialize(details)
     @id = details['id'].to_i if details['id']
     @title = details['title']
-    @author = details['author']
+    @author_id = details['author_id'].to_i
     @stock = details['stock'].to_i
     @description = details['description']
     @buying_price = details['buying_price'].to_i
@@ -19,7 +21,7 @@ class Book
     sql = "INSERT INTO books
     (
       title,
-      author,
+      author_id,
       stock,
       description,
       buying_price,
@@ -31,7 +33,7 @@ class Book
       $1, $2, $3, $4, $5, $6, $7
     )
     RETURNING id"
-    values = [@title, @author, @stock, @description, @buying_price, @selling_price, @category]
+    values = [@title, @author_id, @stock, @description, @buying_price, @selling_price, @category]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
@@ -49,6 +51,31 @@ class Book
     results = SqlRunner.run(sql, values)
     return Book.new(results.first)
   end
+
+  def update()
+      sql = "
+      UPDATE books SET (
+        title,
+        author_id,
+        stock,
+        description,
+        buying_price,
+        selling_price,
+        category
+      ) =
+      (
+        $1, $2, $3, $4, $5, $6, %7
+      )
+      WHERE id = $8"
+      values = [@title, @author_id, @stock, @description, @buying_price, @selling_price, @category, @id]
+      SqlRunner.run(sql, values)
+    end
+
+    def delete()
+      sql = "DELETE FROM books where id = $1"
+      values = [@id]
+      SqlRunner.run(sql, values)
+    end
 
   def self.delete_all
     sql = "DELETE FROM books"
@@ -71,6 +98,13 @@ class Book
     if @stock >= 10
       return "Good"
     end
+  end
+
+  def author()
+    sql = "SELECT * FROM authors WHERE id = $1"
+    values = [@author_id]
+    result = SqlRunner.run(sql, values)[0]
+    return Author.new(result)
   end
 
   end

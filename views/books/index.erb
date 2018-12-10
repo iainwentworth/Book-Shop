@@ -20,7 +20,7 @@
   <tr>
     <td><a href="/books/<%= book.id %>"><%= book.title %></a></td>
     <td></td>
-    <td><%= book.author %></td>
+    <td><a href="/authors/<%= book.author_id %>"><%= book.author.name %></a></td>
     <td></td>
     <td><%= book.stock %></td>
     <td></td>

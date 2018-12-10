@@ -11,7 +11,7 @@ CREATE TABLE books
 (
   id SERIAL primary key,
   title VARCHAR(255) not null,
-  author VARCHAR(255),
+  author_id INT references authors(id) ON DELETE CASCADE,
   stock INT,
   description TEXT,
   buying_price INT,

@@ -6,3 +6,10 @@
 <p>Description: <%= @book.description %></p>
 <p>Buying Price: <%= @book.buying_price %></p>
 <p>Selling Price: <%= @book.selling_price %></p>
+
+<form action="/books/<%= @book.id %>/delete"
+  method="post">
+    <input type="submit" value="Delete Book">
+  </form>
+  
+<p><a href="/books/<%= @book.id %>/edit">Edit book</a></p>

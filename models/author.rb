@@ -3,7 +3,8 @@ require_relative('./book.rb')
 
 class Author
 
-  attr_reader(:id, :name, :type)
+  attr_reader :id
+  attr_accessor :name
 
   def initialize(details)
     @id = details['id'].to_i if details['id']
@@ -39,14 +40,33 @@ class Author
     return Author.new(results.first)
   end
 
+  def update()
+      sql = "
+      UPDATE authors SET (
+        name
+      ) =
+      (
+        $1
+      )
+      WHERE id = $2"
+      values = [@name, @id]
+      SqlRunner.run(sql, values)
+    end
+
+  def delete()
+    sql = "DELETE FROM authors where id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
   def self.delete_all
     sql = "DELETE FROM authors"
     SqlRunner.run( sql )
   end
 
 def books
-  sql = "SELECT * FROM books WHERE author = $1"
-  values = [@name]
+  sql = "SELECT * FROM books WHERE author_id = $1"
+  values = [@id]
   results = SqlRunner.run(sql, values)
   books = results.map {|book_hash| Book.new(book_hash)}
   return books

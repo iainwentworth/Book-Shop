@@ -12,3 +12,14 @@ get '/books/:id' do
   @book = Book.find(params['id'].to_i)
   erb( :"books/show" )
 end
+
+post '/books/:id/delete' do
+  book = Book.find(params[:id].to_i())
+  book.delete()
+  redirect('/books')
+end
+
+get '/books/:id/edit' do
+  @book = Book.find(params[:id].to_i())
+  erb(:"books/edit")
+end
