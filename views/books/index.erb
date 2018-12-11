@@ -58,7 +58,7 @@
   </tr>
   <% for book in @books %>
   <tr>
-    <td><a href="/books/<%= book.id %>"><%= book.title %></a><form action="/books/<%= book.id %>"
+    <td><img id="small_book" src="/images/book_<%= book.id %>.jpg" alt="Book Cover"><a href="/books/<%= book.id %>"><%= book.title %></a><form action="/books/<%= book.id %>"
       method="get">
         <input type="submit" value="Show Details">
       </form></td>

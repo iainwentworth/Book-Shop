@@ -20,7 +20,7 @@ td {
 
 body {
   font-family: Arial;
-  background-color: #33CCFF;
+  background-color: #CC9966;
 }
 
 ul {
@@ -51,10 +51,15 @@ label {
   margin-right: auto;
 }
 
+#small_book {
+  height: 100x;
+  width: 70px;
+  display: block;
+}
 
 nav {
-    display: table;
-    table-layout: fixed;
+  display: table;
+  table-layout: fixed;
     width: 100%;
     background: #f0f0f0;
     border: 1px solid #ccc;
@@ -95,4 +100,15 @@ table td {
 
 a {
   text-decoration: none;
+}
+
+a:visited{ color: black }
+
+.instructions {
+  text-align: center;
+  font-weight: bold;
+}
+
+.instructions2 {
+  text-align: center;
 }

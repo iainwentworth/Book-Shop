@@ -1,5 +1,8 @@
 <p><strong>Book number: </strong><%= @book.id %></p>
 <hr />
+
+<img id="book_cover" src="/images/book_<%= @book.id %>.jpg" alt="Book Cover">
+
 <p><strong>Title: </strong><%= @book.title %></p>
 <p><strong>Author: </strong><%= @book.author.name %></p>
 <p><strong>Category: </strong><%= @book.category %></p>
@@ -8,7 +11,6 @@
 <p><strong>Buying Price: </strong><%= @book.buying_price %></p>
 <p><strong>Selling Price: </strong><%= @book.selling_price %></p>
 <p><strong>Markup: </strong><%= @book.markup %></p>
-
 
 <form action="/books/<%= @book.id %>/edit"
   method="get">
