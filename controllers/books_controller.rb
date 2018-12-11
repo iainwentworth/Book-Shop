@@ -18,6 +18,21 @@ get '/books/fantasy' do
   erb ( :"books/fantasy" )
 end
 
+get '/books/outofstock' do
+  @books = Book.all()
+  erb ( :"books/outofstock" )
+end
+
+get '/books/lowstock' do
+  @books = Book.all()
+  erb ( :"books/lowstock" )
+end
+
+get '/books/goodstock' do
+  @books = Book.all()
+  erb ( :"books/goodstock" )
+end
+
 get '/books/new' do
   @books = Book.all
   @authors = Author.all
