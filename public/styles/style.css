@@ -57,6 +57,19 @@ label {
   display: block;
 }
 
+#book_cover {
+  height: 300x;
+  width: 250px;
+  display: block;
+}
+
+/* #textboxid
+{
+    height:200px;
+    width: 500px;
+
+} */
+
 nav {
   display: table;
   table-layout: fixed;
