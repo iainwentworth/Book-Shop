@@ -17,6 +17,18 @@ author2 = Author.new({
 
 author2.save()
 
+author3 = Author.new({
+  "name" => "J. R. R. Tolkien",
+})
+
+author3.save()
+
+author4 = Author.new({
+  "name" => "Marco Palmieri",
+})
+
+author4.save()
+
 
 book1 = Book.new({
   "title" => "Leviathan Wakes",
@@ -78,7 +90,53 @@ book5 = Book.new({
 
 book5.save()
 
+book6 = Book.new({
+  "title" => "The Children of Húrin",
+  "author_id" => "#{author3.id}",
+  "stock" => 3,
+  "description" => "It is a legendary time long before The Lord of the Rings, and Morgoth, the first Dark Lord, dwells in the vast fortress of Angband in the North; and within the shadow of the fear of Angband, and the war waged by Morgoth against the Elves, the fates of Túrin and his sister Niënor will be tragically entwined.",
+  "buying_price" => 3,
+  "selling_price" => 8,
+  "category" => "Fantasy"
+})
 
+book6.save()
+
+book7 = Book.new({
+  "title" => "The Fall of Gondolin",
+  "author_id" => "#{author3.id}",
+  "stock" => 0,
+  "description" => "In the Tale of The Fall of Gondolin are two of the greatest powers in the world. There is Morgoth of the uttermost evil, unseen in this story but ruling over a vast military power from his fortress of Angband. Deeply opposed to Morgoth is Ulmo, second in might only to Manwë, chief of the Valar.",
+  "buying_price" => 4,
+  "selling_price" => 9,
+  "category" => "Fantasy"
+})
+
+book7.save()
+
+book8 = Book.new({
+  "title" => "The Sky's The Limit: Star Trek (The Next Generation)",
+  "author_id" => "#{author4.id}",
+  "stock" => 20,
+  "description" => "Taking its title from the final words spoken by Captain Jean-Luc Picard in the series finale, The Sky's the Limit is a collection of brand new original stories spanning and celebrating the entire twenty-year history of the most popular and successful Trek series of all. Stories by a variety of authors - some old favourites, some new - set during the events of the television series give the authentic feel of a newly discovered 'missing season' of Star Trek: The Next Generation.",
+  "buying_price" => 7,
+  "selling_price" => 10,
+  "category" => "Science-fiction"
+})
+
+book8.save()
+
+book9 = Book.new({
+  "title" => "Distant Shores: A Tenth-Anniversary Celebration (Star Trek: Voyager)",
+  "author_id" => "#{author4.id}",
+  "stock" => 34,
+  "description" => "Washed up on a faraway galactic shore, Captain Kathryn Janeway of the U.S.S. Voyager faced a choice: accept exile or set a course for home, a seventy-thousand-light-year journey fraught with unknown perils. She chose the latter. Janeway's decision launched her crew on a seven-year trek pursuing an often lonely path that embodied the purest form of the Starfleet adage 'to boldly go . . . ' Committed to that difficult road, Voyager's crew was rewarded with unimaginable experiences on strange and fantastic worlds, encountering exotic alien species and astonishing phenomena . . . and challenged along the way by conflicts from within as well as from without. Yet none of their adventures tempered their shared determination to find a way back to friends and family.",
+  "buying_price" => 4,
+  "selling_price" => 7,
+  "category" => "Science-fiction"
+})
+
+book9.save()
 
 binding.pry
 nil

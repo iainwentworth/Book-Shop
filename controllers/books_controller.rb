@@ -8,6 +8,16 @@ get '/books' do
   erb ( :"books/index" )
 end
 
+get '/books/sci-fi' do
+  @books = Book.all()
+  erb ( :"books/sci-fi" )
+end
+
+get '/books/fantasy' do
+  @books = Book.all()
+  erb ( :"books/fantasy" )
+end
+
 get '/books/new' do
   @books = Book.all
   @authors = Author.all

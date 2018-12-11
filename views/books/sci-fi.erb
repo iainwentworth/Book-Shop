@@ -1,14 +1,4 @@
-<h1>Books</h1>
-
-<form action="/books/sci-fi"
-  method="get">
-    <input type="submit" value="Show only Sci-fi books">
-  </form>
-
-  <form action="/books/fantasy"
-    method="get">
-      <input type="submit" value="Show only Fantasy books">
-    </form>
+<h1>Sci-fi Books</h1>
 
 <table>
   <tr>
@@ -31,6 +21,7 @@
     <th>Markup</th>
   </tr>
   <% for book in @books %>
+  <% if book.category == "Science-fiction" %>
   <tr>
     <td><a href="/books/<%= book.id %>"><%= book.title %></a><form action="/books/<%= book.id %>"
       method="get">
@@ -53,5 +44,6 @@
     <!-- <td></td> -->
     <td><%= book.markup %></td>
   </tr>
+  <% end %>
   <% end %>
 </table>
