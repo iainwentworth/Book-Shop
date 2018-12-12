@@ -20,7 +20,7 @@ td {
 
 body {
   font-family: Arial;
-  background-color: #CC9966;
+  background-color: #808080;
 }
 
 ul {
@@ -62,13 +62,6 @@ label {
   width: 250px;
   display: block;
 }
-
-/* #textboxid
-{
-    height:200px;
-    width: 500px;
-
-} */
 
 nav {
   display: table;
