@@ -1,6 +1,5 @@
 require_relative( "../models/book.rb" )
 require_relative( "../models/author.rb" )
-require("pry-byebug")
 
 Book.delete_all()
 Author.delete_all()
@@ -137,6 +136,3 @@ book9 = Book.new({
 })
 
 book9.save()
-
-binding.pry
-nil

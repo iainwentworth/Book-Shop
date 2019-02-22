@@ -58,6 +58,11 @@ class Author
     SqlRunner.run( sql )
   end
 
+# Prepare SQL to select everything from books by author
+# Run it against the database using SQLRunner
+# The list of books will be returned from database
+# The list of books is then converted into a list of book objects
+# The list of book objects is then returned
 def books
   sql = "SELECT * FROM books WHERE author_id = $1"
   values = [@id]
